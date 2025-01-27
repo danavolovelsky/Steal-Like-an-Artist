@@ -1,0 +1,549 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap');
+
+/* CSS Variables for Theme Colors */
+:root {
+    --primary-color: #3E2723;
+    /* Dark Brown */
+    --secondary-color: #e1d7d4;
+    /* Light Brown */
+    --accent-color: #6060dd;
+    /* Blue */
+    --background-color: #FAFAFA;
+    /* Off White */
+    --text-color: #333333;
+    /* Dark Gray */
+    --header-height: 60px;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Styling */
+header {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+}
+
+.logo h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+}
+
+nav {
+    position: relative;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-speed) ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width var(--transition-speed) ease;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    height: 3px;
+    width: 25px;
+    background-color: var(--secondary-color);
+    margin: 4px 0;
+    transition: all var(--transition-speed) ease;
+}
+
+
+#hero {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 100px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#hero h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8em;
+    /* Slightly larger for emphasis */
+    font-weight: 600;
+    /* Bold for hierarchy */
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    /* Dark Brown for warmth */
+}
+
+#hero p {
+    font-size: 1.2em;
+    /* Balanced readability */
+    margin-bottom: 10px;
+    line-height: 1.8;
+    /* More space for breathing room */
+    color: var(--text-color);
+}
+
+/* Optional: Add a Decorative Element */
+#hero::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    margin: 20px auto 0;
+    background-color: var(--accent-color);
+    /* Blue accent */
+}
+
+
+/* Introduction Section */
+#introduction {
+    padding: 60px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+#introduction h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    position: relative;
+}
+
+#introduction h2::after {
+    content: '';
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+}
+
+#introduction p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.section-image {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Styling */
+section {
+    padding: 60px 0;
+    background-color: #fff;
+    margin-top: -20px;
+    /* To create overlap effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+section:nth-of-type(even) {
+    background-color: var(--background-color);
+}
+
+section .container {
+    animation: fadeIn 1s ease-out;
+}
+
+section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+}
+
+.scene {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--accent-color);
+    border-radius: 3px;
+    margin-top: 2%;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.scene:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.scene h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.scene p {
+    color: var(--text-color);
+}
+
+.subtitles {
+    padding-top: 2%;
+}
+
+/* Image styling*/
+.image-gallery {
+    display: grid;
+    gap: 20px;
+    /* Each card must be at least 200px wide, but can stretch to fill the row */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 3%;
+}
+
+.image-item {
+    /* Force each grid cell to be a perfect square */
+    aspect-ratio: 16 / 9;
+    /* If your design wants a 16:9 rectangle, use aspect-ratio: 16 / 9; */
+    position: relative;
+    /* for absolutely positioned img if needed */
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures images fill the box uniformly, cutting off any overflow 
+       while maintaining their aspect ratio. */
+    border-radius: 8px;
+    /* optional for rounded corners */
+}
+
+.image-item img:hover {
+    transform: scale(1.25);
+    transition: transform 0.6s ease-in-out;
+    /* Smooth animation */
+    /* Enlarges the image to 150% (50% bigger) */
+}
+
+.video-item video:hover {
+    transform: scale(1.1);
+    transition: transform 0.6s ease-in-out;
+    /* Smooth animation */
+    /* Enlarges the image to 150% (50% bigger) */
+}
+
+.image-item:last-child {
+    margin-right: 0;
+    /* Remove margin for the last image */
+}
+
+.image-item.static-image img {
+    width: 300px;
+    /* Set the width of the square */
+    height: 300px;
+    /* Match the height to the width for a square */
+    object-fit: cover;
+    /* Ensures images fit within the square without stretching */
+    border-radius: 8px;
+    /* Optional: Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a subtle shadow for aesthetics */
+}
+
+.image-gallery .image-title {
+    font-size: 14px;
+    /* Adjust to match your design */
+    color: var(--text-color);
+    /* Ensure it uses your theme's text color */
+    text-align: center;
+    /* Center align under the image */
+    margin-top: 10px;
+    /* Add space between the image and the title */
+}
+
+/* Carousel-specific title alignment */
+.image-gallery .carousel .image-title {
+    text-align: center;
+    /* Ensure it centers under the carousel */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    /* Add spacing between the carousel and subsequent content */
+}
+
+/* Ensure carousel title aligns well */
+.development-gallery .carousel {
+    text-align: center;
+    /* Center align the carousel itself */
+    margin-bottom: 10px;
+    /* Space for the title */
+}
+
+/* Outer container: .carousel 
+   - No forced height or overflow here */
+/* The .carousel wrapper sits in your .image-item */
+.carousel {
+    /* Let .carousel grow to fit the contents: title + .carousel-outer */
+    width: auto;
+    text-align: center;
+    /* Title is centered below the carousel */
+    margin-bottom: 20px;
+}
+
+/* 1) Outer container: fixed 300×300 for the visible window */
+.carousel-outer {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    /* Center horizontally if desired */
+    overflow: hidden;
+    /* Hide images overflowing the 300×300 window */
+    border: 2px solid #ccc;
+    /* Optional for clarity */
+    border-radius: 8px;
+    /* If you want rounded corners */
+}
+
+/* 2) Inner wrapper: wide enough for all images, slides with transform */
+.carousel-wrapper {
+    display: flex;
+    /* Multiply 300px by total images. If you have 3 images, 300 * 3 = 900px */
+    width: calc(300px * 3);
+    transition: transform 0.5s ease-in-out;
+    /* No overflow or height here; it can be bigger than the window. */
+}
+
+/* Each image is 300×300 to fill the window */
+.carousel-wrapper img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    flex-shrink: 0;
+    /* Prevent images from shrinking */
+}
+
+/* Title styling, remains visible below the window */
+.image-title {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+
+
+.carousel-wrapper img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Navigation Controls */
+/* Carousel Controls */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+    /* Ensure clicks don't affect surrounding elements */
+}
+
+.carousel-button {
+    background: transparent;
+    color: #000;
+    /* Valid color value */
+    border: none;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    pointer-events: all;
+    padding: 0 20px;
+    user-select: none;
+}
+
+.carousel-button:hover {
+    color: #f5a623;
+    /* Highlight color on hover */
+    transform: scale(1.2);
+    /* Slight zoom effect */
+}
+
+.carousel-button.prev {
+    margin-left: 5px;
+}
+
+.carousel-button.next {
+    margin-right: 5px;
+}
+
+/*Video styling*/
+.video-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: space-between;
+    padding: 3%;
+}
+
+.video-item {
+    aspect-ratio: 16 / 9;
+    /* If your design wants a 16:9 rectangle, use aspect-ratio: 16 / 9; */
+    position: relative;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: var(--header-height);
+        right: 0;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        width: 200px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height var(--transition-speed) ease;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .nav-links a {
+        font-size: 1.1em;
+    }
+
+    .nav-active {
+        max-height: 500px;
+        /* Arbitrary max height for animation */
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hamburger Animation */
+    .hamburger.toggle .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.toggle .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.toggle .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Adjust Hero Padding for Mobile */
+    #hero {
+        padding: 80px 20px 40px 20px;
+    }
+
+    #introduction {
+        padding: 40px 20px;
+    }
+
+    section {
+        padding: 40px 20px;
+    }
+}

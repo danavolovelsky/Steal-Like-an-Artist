@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art & AI Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTTXAB3M4Q+BkQx2sJlGPP2x6I7aWzW3Cn2pG4wgPjYVnHI5wCM3kB1XsEZ4OWPPiZDLzjM5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Art & AI</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#discarded-ideas">Discarded Ideas</a></li>
+                    <li><a href="#development-process">Development Process</a></li>
+                    <li><a href="#ethical-considerations">Ethical Considerations</a></li>
+                    <li><a href="#research-reflection">Research & Reflection</a></li>
+                    <li><a href="#outcome">Outcome</a></li>
+
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h2>Steal Like an Artist</h2>
+                <p>Creative Documentation of an AI-generated Short Film</p>
+            </div>
+        </section>
+
+        <section id="introduction">
+            <div class="container">
+                <h2>Introduction</h2>
+                <p>
+                    My project aims to tell the story of a frustrated artist navigating the struggles of creativity. I
+                    initially explored AI tools like DALL·E and Ideogram for character creation and scene design, but
+                    while these platforms generated visually appealing images, they lacked consistency in the artist's
+                    appearance across poses and settings. This limitation led me to train a LoRA model in FluxGym to
+                    achieve a unified protagonist and adapt workflows in ComfyUI to blend LoRA-based character
+                    generation with fixed background images. Additional tools like Photoshop Beta AI for fine-tuning,
+                    Tensorpix for quality enhancement and a GPT-trained film director for scene planning further shaped
+                    the project. KlingAI became my main tool for animating still images into cohesive video scenes.
+                </p>
+            </div>
+        </section>
+
+        <section id="discarded-ideas">
+            <div class="container">
+                <h2>Discarded Ideas</h2>
+                <p> <strong>Early Explorations <br /><br /></strong>The project began with a broad exploration of visual
+                    concepts using tools like DALL·E and Ideogram.
+                    These platforms laid the foundation for early ideation, helping to envision the protagonist and
+                    potential scenes. However, their inability to maintain visual consistency became a significant
+                    barrier.
+                </p>
+                <div class="image-gallery">
+                    <div class="image-item">
+                        <img src="assets/dalle1.png" alt="Dalle generated image 1">
+                        <p class="image-title">Generated with DALL·E</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="assets/dalle2.png" alt="Dalle generated image 2">
+                        <p class="image-title">Generated with DALL·E</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="assets/ideogram1.jpeg" alt="Ideogram generated image 1">
+                        <p class="image-title">Generated with Ideogram</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="assets/ideogram2.jpeg" alt="Ideogram generated image 2">
+                        <p class="image-title">Generated with Ideogram</p>
+                    </div>
+                </div>
+
+                <p>I also experimented with Hailou AI for video generation, using techniques that relied on prompts and
+                    pre-generated images. This helped me understand AI's video capabilities, though the outputs were
+                    limited by poor quality and short durations. Key lessons included the importance of character
+                    consistency and generating clips in 16:9 film dimensions for a cinematic look.
+                </p>
+
+                <div class="video-gallery">
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/hailou2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-title">Image and Prompt</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/hailou3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-title">Prompt</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/hailou4.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-title">Prompt</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/hailou1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-title">Character Image and Prompt</p>
+                    </div>
+                </div>
+
+                <p><strong>Transition to ComfyUI <br /><br /></strong>Recognising the need for greater control, I
+                    transitioned to ComfyUI, a node-based interface for
+                    AI-generated content. ComfyUI allowed me to connect nodes for specific functions like character
+                    generation and background integration. This modular approach enabled me to test workflows for
+                    character-to-background combinations, storyboarding and video-to-video techniques. While flexible,
+                    these workflows often struggled with maintaining character consistency, especially when dealing with
+                    complex backgrounds or dynamic poses.
+                </p>
+                <div class="subtitles">
+                    <p> <strong>Simple integrations: </strong><br /> Early attempts at
+                        character-to-background integration produced basic results, lacking interaction between the
+                        character and the environment.
+                    </p>
+                </div>
+                <div class="image-gallery">
+                    <div class="image-item">
+                        <img src="assets/simple1.png" alt="Background image of easel">
+                        <p class="image-title">Background</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="assets/simple2.png" alt="Character image">
+                        <p class="image-title">Character</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="assets/simple3.png" alt="Standing pose">
+                        <p class="image-title">Pose</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="assets/simple4.png" alt="Combined result of standing man in front of easels">
+                        <p class="image-title">Final Result</p>
+                    </div>
+                </div>
+
+                <div class="subtitles">
+                    <p> <strong>Storyboard workflow: </strong><br />When integrating drawn scenes,
+                        ComfyUI overly weighted the background, causing the character to lose consistency despite any
+                        adjustments.
+                    </p>
+                </div>
+                <div class="image-gallery">
+                    <div class="image-item">
+                        <img src="assets/drawing1.jpg" alt="Sketch of the scene">
+                        <p class="image-title">Scene drawing</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="assets/drawing2.png" alt="Artist in studio">
+                        <p class="image-title">1. Generated result</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="assets/drawing3.png" alt="Shirtless artist in studio">
+                        <p class="image-title">2. Generated result</p>
+                    </div>
+                </div>
+
+                <div class="subtitles">
+                    <p> <strong>Video-to-Video generation: </strong><br />While this method captured movements
+                        effectively, quality issues persisted despite adjustments to denoising and steps, which control
+                        the model's iterations to refine output. Videos were
+                        limited to a few seconds and the process offered little room for necessary refinement compared
+                        to image editing in Photoshop.
+                    </p>
+                </div>
+                <div class="video-gallery">
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/v2v_0.mov" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-title">Original video</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/v2v_1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-title">1. Result</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/v2v_2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-title">2. Result</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="assets/v2v_3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-title">3. Result</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section id="development-process-2">
+            <div class="container">
+                <h2>Development Process</h2>
+                <p> <strong>Developing the Character</strong> <br /><br />
+                    To ensure character consistency, I created "Dana's Film Assistant," a GPT-based AI trained on
+                    cinematic storytelling. Inspired by directors like Damien Chazelle, it provided insights into scene
+                    structure, character arcs, and visual depth.
+                    <br /><br />
+                    Achieving a cohesive character design required significant experimentation. Initially, I attempted
+                    to generate individual images with consistent facial features and manually adjust poses using
+                    Openpose models. However, this approach proved both time-consuming and inconsistent. Instead, I
+                    trained a LoRA model, 'Frankai,' in FluxGym using a dataset of 16 diverse images. When incorporated
+                    into ComfyUI workflows, this model ensured consistency across varying poses and settings by
+                    triggering its characteristics through its name.
+                </p>
+
+                <div class="image-gallery development-gallery">
+                    <!-- Image Before Carousel -->
+                    <figure class="image-item static-image">
+                        <img src="assets/character0.png" alt="Openpose Charactersheet">
+                        <figcaption class="image-title">Openpose Charactersheet</figcaption>
+                    </figure>
+
+                    <!-- Carousel -->
+                    <figure class="image-item carousel">
+                        <div class="carousel-outer">
+                            <div class="carousel-wrapper">
+                                <img src="assets/character1.png" alt="Character design iteration 1">
+                                <img src="assets/character2.png" alt="Character design iteration 2">
+                                <img src="assets/character3.png" alt="Character design iteration 3">
+                                <img src="assets/character4.png" alt="Character design iteration 4">
+                                <img src="assets/character5.png" alt="Character design iteration 5">
+                            </div>
+                        </div>
+                        <figcaption class="image-title">Experimentation</figcaption>
+                    </figure>
+
+                    <!-- Image After Carousel -->
+                    <figure class="image-item static-image">
+                        <img src="assets/character6.png" alt="Final character design">
+                        <figcaption class="image-title">Final Result</figcaption>
+                    </figure>
+                </div>
+
+                <p>
+                    <strong>Creating Scenes</strong><br /><br />Using ComfyUI, I generated environments with a LoRA-only
+                    workflow,
+                    refining them in Photoshop Beta to establish scene foundations. I then transitioned to a
+                    dual-conditioning workflow, combining the LoRA character with the background. Balancing the "noise"
+                    parameter was critical—higher noise produced detailed environments but omitted the character, while
+                    lower noise prioritised the character at the expense of environmental accuracy. Experimenting with
+                    these parameters and seed values (which ensure reproducibility) helped achieve balanced results.
+                    <br /><br />For further refinement, I used Photoshop Beta to tweak hair, add artistic elements like
+                    paintbrushes, and enhance textures, ensuring alignment with my vision. <br /><br />The trained movie
+                    director GPT not only refined prompt wording but also guided the ideation process for structuring
+                    and planning the film. It suggested atmospheric scenes of the room without the protagonist to
+                    establish the setting, which I incorporated in later close-up videos. Additionally, it provided
+                    insights into camera movements, such as when to use close-ups, wide shots, zoom-ins, and the ideal
+                    duration of each shot for a more cinematic effect.
+                </p>
+
+                <div class="image-gallery">
+                    <figure class="image-item">
+                        <img src="assets/lora1.png" alt="FluxGym WebUI for LoRA training">
+                        <figcaption class="image-title">FluxGym WebUI</figcaption>
+                    </figure>
+                    <figure class="image-item">
+                        <img src="assets/lora2.png" alt="Character captions used for LoRA training">
+                        <figcaption class="image-title">Character Captions for Training</figcaption>
+                    </figure>
+                </div>
+
+                <p>
+                    <strong>Video Creation</strong><br /><br />For video generation, KlingAI's features, including
+                    prompt-based generation, photo-to-video transformations, and the elements tool, allowed for
+                    interactive scenes combining characters, backgrounds and objects. However, character poses from
+                    input images heavily influenced animations, often resulting in unnatural movements. Careful planning
+                    was needed to address this limitation.
+                </p>
+
+                <div class="scenes">
+                    <div class="scene" id="scene-1">
+                        <h3>Scene 1: Creative Block</h3>
+                        <p>
+                            The first scene introduces the protagonist in a cluttered studio, reflecting his creative
+                            struggles. Using AI tools, I generated various angles and enhanced the visuals with light
+                            grain to unify the aesthetic, including atmospheric shots of the
+                            room to set the mood.
+                        </p>
+                        <div class="video-gallery">
+                            <figure class="video-item">
+                                <video controls>
+                                    <source src="assets/mainvid.mov" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <figcaption class="video-title">
+                                    Large Video of image evolution to spot the clear differences between each iteration
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="image-gallery">
+                            <figure class="image-item">
+                                <img src="assets/background.png" alt="Original full background">
+                                <figcaption class="image-title">Original Background</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/background2.png" alt="Paintbrushes on the side table">
+                                <figcaption class="image-title">Photoshop Beta Enhancement:<br />Brushes on the Side
+                                    Table</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/background3.png" alt="Crumpled sketches on the floor">
+                                <figcaption class="image-title">Photoshop Beta Enhancement:<br />Paint and Crumpled
+                                    Sketches on the Floor</figcaption>
+                            </figure>
+                        </div>
+                        <div class="image-gallery">
+                            <figure class="image-item">
+                                <img src="assets/bg1.png" alt="Background with noise parameter set to 1">
+                                <figcaption class="image-title">Noise = 1<br />Character &lt; Background</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/bg2.png" alt="Another background with noise parameter set to 1">
+                                <figcaption class="image-title">Noise = 1<br />Character &lt; Background</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/bg3.png" alt="Background with noise parameter set to 0">
+                                <figcaption class="image-title">Noise = 0<br />Character &lt; Background</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/bg4.png" alt="Another background with noise parameter set to 0">
+                                <figcaption class="image-title">Noise = 0<br />Character &lt; Background</figcaption>
+                            </figure>
+                        </div>
+                        <div class="image-gallery">
+                            <figure class="image-item">
+                                <img src="assets/window1.png" alt="Original window image with beige pants">
+                                <figcaption class="image-title">Original Window Image<br />Before Photoshop Beta
+                                    Makeover</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/window2.png" alt="Window image with blue jeans and added artist">
+                                <figcaption class="image-title">Instead of just changing his Pants, I added the artist
+                                    in
+                                    the original background</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/wall1.png" alt="Original wall image with straight hair">
+                                <figcaption class="image-title">Original Wall Image<br />Before Photoshop Beta Makeover
+                                </figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/wall2.png" alt="Wall image with curly hair">
+                                <figcaption class="image-title">Added curly hair for character consistency and cropped
+                                    the image</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <div class="scene" id="scene-2">
+                        <h3>Scene 2: Inspirational Walk</h3>
+                        <p>This scene features the artist exploring the city, observing the vibrancy around him. To plan
+                            the sequence, I consulted my film director GPT, which recommended a variety of shots. From
+                            these suggestions, I selected clips like a café visit and market interactions, refining them
+                            with Photoshop Beta to remove inconsistencies.
+                        </p>
+                        <div class="subtitles">
+                            <p><strong>Cafe Scene:</strong></p>
+                        </div>
+
+                        <div class="image-gallery">
+                            <figure class="image-item">
+                                <img src="assets/cafe4.png"
+                                    alt="Original cafe close-up image before Photoshop Beta makeover">
+                                <figcaption class="image-title">Original Cafe Close-Up Image<br />Before Photoshop Beta
+                                    Makeover</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/cafe1.png" alt="Edited cafe close-up with shirt color change">
+                                <figcaption class="image-title">Change in Shirt Color to Remain Cohesive</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/cafe2.png"
+                                    alt="Original walk to cafe image before Photoshop Beta makeover">
+                                <figcaption class="image-title">Original Cafe Walk Image<br />Before Photoshop Beta
+                                    Makeover</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/cafe3.png" alt="Artists walk to cafe">
+                                <figcaption class="image-title">Changed the background people's clothes</figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="subtitles">
+                            <p><strong>Market Scene:</strong></p>
+                        </div>
+
+                        <div class="image-gallery">
+                            <figure class="image-item">
+                                <img src="assets/market1.png" alt="Artist in market facing the camera">
+                                <figcaption class="image-title">Unnatural pose of the artist, leading to unrealistic
+                                    video movement </figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/market2.png" alt="Artist in market, back facing the camera">
+                                <figcaption class="image-title">Original Market Image <br />
+                                    Before Photoshop Beta Makeover</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/market3.png" alt="Artist in market, back facing the camera">
+                                <figcaption class="image-title">Included a woman while refining the scene by removing
+                                    unnatural elements</figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="subtitles">
+                            <p><strong>Street Dancer Scene: </strong><br /><br /> I experimented with various prompts
+                                for the street dancer scene, but the movements consistently appeared awkward and
+                                unnatural.</p>
+                        </div>
+
+                        <div class="image-gallery">
+                            <figure class="image-item">
+                                <img src="assets/graffiti1.png" alt="Empty graffiti street">
+                                <figcaption class="image-title">The street lacked vibrancy and failed to capture the
+                                    dynamic graffiti vibe I aimed for</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/graffiti2.png" alt="More lived in graffiti street">
+                                <figcaption class="image-title">Improved with added background people and atmosphere,
+                                    but still lacks the desired energy and depth</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/graffiti3.png" alt="Graffiti street in the right atmosphere">
+                                <figcaption class="image-title">Enhanced in Photoshop to add street style, including
+                                    graffiti cans and a more lived in feel</figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="video-gallery">
+                            <figure class="video-item">
+                                <video controls>
+                                    <source src="assets/graffiti1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <figcaption class="video-title">
+                                    1. Result
+                                </figcaption>
+                            </figure>
+                            <figure class="video-item">
+                                <video controls>
+                                    <source src="assets/graffiti2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <figcaption class="video-title">
+                                    2. Result
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="subtitles">
+                            <p><strong>Neon Lights Scene:</strong></p>
+                        </div>
+                        <div class="image-gallery">
+                            <figure class="image-item">
+                                <img src="assets/neon1.png" alt="Asian neon signs, empty street">
+                                <figcaption class="image-title">Initial neon lights prompt included unintended Asian
+                                    signs in the background</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/neon2.png" alt="Neon signs, some background characters">
+                                <figcaption class="image-title">Including "London" in the prompt shifted the scene to a
+                                    more fitting european setting</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <div class="scene" id="scene-3">
+                        <h3>Scene 3: Artistic Breakthrough</h3>
+                        <p>Returning to the studio, the artist approached his work with newfound inspiration. I used
+                            the LoRA workflow to generate dynamic poses, capturing the transformation in his demeanour.
+                            The shift in the atmosphere was reflected through enriched and more colourful visuals.</p>
+
+                        <div class="image-gallery">
+                            <figure class="image-item">
+                                <img src="assets/inspo1.png" alt="Sitting sideways in front of the easel">
+                                <figcaption class="image-title">Sitting position (A) </figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/inspo2.png" alt="Sitting sideways in front of the final canvas">
+                                <figcaption class="image-title">Sitting position (B)</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/inspo3.png" alt="Standing in front of the canvas">
+                                <figcaption class="image-title">Painting Position (A)</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/inspo4.png" alt="Standing in front of unfinished colorful canvas">
+                                <figcaption class="image-title">Painting Position (B)</figcaption>
+                            </figure>
+                        </div>
+                        <div class="image-gallery">
+                            <figure class="image-item">
+                                <img src="assets/inspo5.png"
+                                    alt="Back to the camera, hands on the mans waist, he is admiring the artwork from far">
+                                <figcaption class="image-title">Admiring Position (A) </figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/inspo6.png"
+                                    alt="Back to the camera, hands on the mans waist, he is admiring the finished colorful artwork from far">
+                                <figcaption class="image-title">Admiring Position (B)</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/inspo7.png" alt="Artist presents finished artwork beind him on canvas">
+                                <figcaption class="image-title">Final Presentation (A)</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/inspo8.png"
+                                    alt="Artist presents finished artwork beind him on canvas and also on magazines in front of him">
+                                <figcaption class="image-title">Final Presentation (B)</figcaption>
+                            </figure>
+                        </div>
+                        <div class="image-gallery">
+                            <figure class="image-item">
+                                <img src="assets/final1.png" alt="Canvas sitting on an easel"
+                                    style="width: 300px; height: 300px; object-fit: cover;">
+                                <figcaption class="image-title">DALL·E-generated image used as the foundation for the
+                                    final artwork</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/final2.png" alt="Square view of finished artwork"
+                                    style="width: 300px; height: 300px; object-fit: cover;">
+                                <figcaption class="image-title">Extracted the centerpiece using Photoshop Beta
+                                </figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/final3.png" alt="Square view of unfinished artwork"
+                                    style="width: 300px; height: 300px; object-fit: cover;">
+                                <figcaption class="image-title">AI-generated unfinished corner added for
+                                    work-in-progress video creation</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <div class="scene" id="scene-4">
+                        <h3>Scene 4: The Grand Unveiling</h3>
+                        <p>The final scene depicted the artist presenting his completed work in a gallery, contrasting
+                            with the rightful artist's realisation of the stolen concept. Distinct clothing choices
+                            helped differentiate the two characters, and Photoshop was used to integrate the final
+                            artwork seamlessly into the setting. </p>
+                        <div class="image-gallery">
+                            <figure class="image-item">
+                                <img src="assets/closeup11.png" alt="Canvas sitting on an easel">
+                                <figcaption class="image-title">The LoRA model automatically generated the artist in a
+                                    white shirt, reflecting the default character design, even after specifiying
+                                    different attire</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/closeup1.png" alt="Square view of finished artwork">
+                                <figcaption class="image-title">Refined in Photoshop Beta AI to replace the white shirt
+                                    with a tuxedo for a polished, formal look
+                                </figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/closeup22.png" alt="Square view of unfinished artwork">
+                                <figcaption class="image-title">Default output</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/closeup2.png" alt="Square view of unfinished artwork">
+                                <figcaption class="image-title">Edited Refinement</figcaption>
+                            </figure>
+                        </div>
+                        <div class="image-gallery">
+                            <figure class="image-item">
+                                <img src="assets/closeup33.png" alt="Canvas sitting on an easel">
+                                <figcaption class="image-title">Due to the LoRA model, the other character was generated
+                                    wearing a white shirt, which clashed with the intended differentiation</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/closeup3.png" alt="Square view of finished artwork">
+                                <figcaption class="image-title">Opted for a black shirt as the character’s staple for
+                                    consistency, also used Photoshop Beta to extend the close-up into a medium shot for
+                                    better scene alignment
+                                </figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/closeup44.png" alt="Square view of unfinished artwork">
+                                <figcaption class="image-title">Default output</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/closeup4.png" alt="Square view of unfinished artwork">
+                                <figcaption class="image-title">Edited Refinement</figcaption>
+                            </figure>
+                        </div>
+                        <div class="image-gallery">
+                            <figure class="image-item">
+                                <img src="assets/clothes3.png" alt="Canvas sitting on an easel">
+                                <figcaption class="image-title"> Beyond adjusting the clothes, integrating the final
+                                    artwork into the setting was essential for authenticity</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/clothes4.png" alt="Square view of finished artwork">
+                                <figcaption class="image-title">Used "normal" Photoshop tools to seamlessly incorporate
+                                    the final artwork and ensure it aligned with the overall scene’s composition
+                                </figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/clothes1.png" alt="Square view of unfinished artwork">
+                                <figcaption class="image-title">Default output</figcaption>
+                            </figure>
+                            <figure class="image-item">
+                                <img src="assets/clothes2.png" alt="Square view of unfinished artwork">
+                                <figcaption class="image-title">Edited Refinement</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <p>After generating all the videos, I edited them together in DaVinci Resolve, incorporating
+                        zoom and blur effects for the flashback scenes to enhance the mood, and added sound,
+                        the song Strandfeest by Bakermat, to unify the project’s tone and evoke the
+                        emotional journey of the artist.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ethical-considerations">
+            <div class="container">
+                <h2>Ethical Considerations</h2>
+                <p>A key ethical issue I encountered during this project was the pervasive presence of stereotypes and
+                    bias in AI-generated content. While the LoRA model I trained for my protagonist ensured consistency,
+                    its limitations highlighted broader issues in AI datasets. For example, the model was trained on a
+                    white male character, which influenced not only the protagonist’s appearance but also the
+                    surrounding cast. Men were generated far more often than women and when women did appear, they were
+                    often depicted with distorted features, leaving me questioning whether this bias stemmed from the
+                    LoRA model itself or deeper flaws in the AI training datasets. <br /><br />
+                    This bias extended beyond character representation. While generating scenes in a European setting,
+                    prompts involving "neon lights at night" often included signs in Asian scripts, even though the
+                    environment had no cultural connection to Asia. Similarly, people of colour were rarely generated
+                    unless explicitly specified. At first, I was impressed when the AI included people of colour in an
+                    urban graffiti street, but later, upon deeper reflection, I realised this felt less like inclusivity
+                    and more like a reflection of bias in associating certain demographics with specific environments.
+                    Gender-based stereotypes also became apparent in wardrobe choices. When generating people in formal
+                    attire, men were consistently dressed in tuxedos or suits, while women appeared almost exclusively
+                    in red dresses, reinforcing outdated norms about gender roles.<br /><br />
+                    These patterns emphasise the importance of holding AI developers accountable for ensuring diverse,
+                    unbiased datasets. Representation in AI-generated content isn't just about aesthetics, it has
+                    real-world implications for how technology perpetuates stereotypes and impacts society’s perception
+                    of identity and inclusivity. This project underscored the urgent need for ethical oversight in AI,
+                    especially when dealing with human representation.</p>
+            </div>
+        </section>
+
+        <section id="research-reflection">
+            <div class="container">
+                <h2>Research & Reflection</h2>
+                <p>This project was a deep dive into how AI and machine learning can enhance and reshape the creative
+                    process. Tools like ComfyUI, Photoshop Beta, and KlingAI allowed me to experiment with storytelling,
+                    visuals and animations in ways that would be impossible on a small budget. Photoshop Beta, with its
+                    hands-on approach, enabled precise edits, letting me fine-tune specific elements like colours or
+                    composition without regenerating entire scenes. ComfyUI’s node-based workflows allowed for a modular
+                    process where I could focus on balancing character consistency and background integration
+                    effectively. <br /><br />
+                    Yet, the process wasn’t without challenges. AI-generated ideas for the film’s plot were often too
+                    generic, with predictable twists like “it was all a dream” or “he was dead the whole time.” This
+                    required human intervention to develop a more layered and original narrative. Visuals, too, demanded
+                    careful curation, out of several generated videos, only one or two were usable and even these
+                    required speed adjustments and editing to meet aesthetic and narrative goals.<br /><br />
+                    The unpredictability of AI brought both frustrations and surprises. For instance, I imagined the
+                    protagonist sitting still in a café, but AI unexpectedly added him sipping coffee and sketching, a
+                    detail that elevated the scene’s depth. However, AI’s literal interpretation of prompts often posed
+                    issues; for example, asking for a "wobbly" motion caused objects to move unnaturally. I learned that
+                    negative prompts and weighting techniques became essential for guiding the AI
+                    effectively.<br /><br />
+
+                    This project reaffirmed that while AI is a powerful tool for ideation and execution, the human touch
+                    remains essential. Maintaining cohesion, refining ideas and creating a narrative that resonates
+                    emotionally requires oversight that AI alone, at this stage, can’t provide. Despite its limitations,
+                    the process was highly rewarding, showcasing AI’s ability to accelerate workflows and inspire
+                    creativity. Ultimately, this project underscored the evolving partnership between human creativity
+                    and technology in artistic fields.
+                </p>
+            </div>
+        </section>
+        <section id="outcome">
+            <div class="container">
+                <h2>Outcome</h2>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/7EEBNkADwno"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
